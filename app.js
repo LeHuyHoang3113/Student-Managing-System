@@ -42,11 +42,11 @@ const inputStudentDOB = req.body.studentDOB;
 const inputStudentAddress = req.body.studentAddress;
 
 students.push({
-	StudentId: inputStudentId,
-	StudentName: inputStudentName,
-	StudentGender: inputStudentGender,
-	StudentDOB: inputStudentDOB,
-    StudentAddress: inputStudentAddress,
+	studentId: inputStudentId,
+	studentName: inputStudentName,
+	studentGender: inputStudentGender,
+	studentDOB: inputStudentDOB,
+    studentAddress: inputStudentAddress,
 });
 
 res.render("home", {
