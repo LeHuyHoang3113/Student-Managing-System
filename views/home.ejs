@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Student Management System</title>
+</head>
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td,
+	th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+</style>
+
+<body>
+	<h2>Student Management System</h2>
+	<table>
+		<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Gender</th>
+		<th>Date of Birth</th>
+        <th>Address</th>
+		<th>Delete</th>
+		</tr>
+		<% data.forEach(element => { %>
+		<tr>
+		<td><%= element.studentId %></td>
+		<td><%= element.studentName %></td>
+        <td><%= element.studentGender %></td>
+		<td><%= element.studentDOB %></td>
+		<td><%= element.studentAddress %></td>
+		<td>
+				<form action="/delete" method="post">
+				<input type="text" style="display: none;"
+					name="studentId"
+					value="<%= element.studentId %>">
+				<button type="submit">Delete</button>
+				</form>
+		</td>
+		</tr>
+		<% }) %>
+</table>
+
+	<h2>Add Student</h2>
+
+	<form action="/" method="post">
+		<input type="text" placeholder="Student Name"
+			name="studentName">
+		<input type="text" placeholder="Student Gender"
+			name="studentGender">
+        <input type="text" placeholder="Student DOB"
+			name="studentDOB">
+		<input type="text" placeholder="Student Address"
+			name="studentAddress">
+		<button type="submit">Submit</button>
+	</form>
+
+	<h2>Update Student</h2>
+
+	<form action="/update" method="post">
+		<input type="text" placeholder="Student Id"
+			name="studentId">
+		<input type="text" placeholder="Student Name"
+			name="studentName">
+		<input type="text" placeholder="Student Gender"
+			name="studentGender">
+        <input type="text" placeholder="Student DOB"
+			name="studentDOB">
+		<input type="text" placeholder="Student Address"
+			name="studentAddress">
+		<button type="submit">Update</button>
+	</form>
+</body>
+
+</html>
